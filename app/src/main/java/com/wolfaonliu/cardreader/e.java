@@ -4,7 +4,7 @@ package com.wolfaonliu.cardreader;
 public class e {
     //byte 1字节=8 bit
     public static String b(byte[] bArr) {
-        //新建一个可变长度的字符串序列
+        //新建一个可变长度的字符串序列，长度为原来长度
         StringBuilder stringBuilder = new StringBuilder(bArr.length);
         //迭代原始数组
         for (byte b : bArr) {
@@ -19,17 +19,23 @@ public class e {
             stringBuilder.append(toHexString.toUpperCase());
 
         }
+        //返回字符串数组
         return stringBuilder.toString();
     }
 
 
     public static String d(byte[] bArr) {
+        //新建可变长字符串，长度为原来2倍
         StringBuilder stringBuilder = new StringBuilder(bArr.length * 2);
+        //迭代原来中字符
         for (byte aBArr : bArr) {
-            stringBuilder.append((byte) ((aBArr & 240) >>> 4));
-            stringBuilder.append((byte) (aBArr & 15));
+            //240=1111 0000,取高4位单独存起来
+            stringBuilder.append((byte) ((aBArr & (byte) 240) >>> 4));
+            //15=0000 1111 ，取低四位
+            stringBuilder.append((byte) (aBArr & (byte) 15));
         }
-        return stringBuilder.toString().substring(0, 1).equalsIgnoreCase("0") ? stringBuilder.toString().substring(1) : stringBuilder.toString();
+        return stringBuilder.substring(0, 1).equalsIgnoreCase("0") ?
+                stringBuilder.substring(1) : stringBuilder.toString();
     }
 
     //被外部引用
