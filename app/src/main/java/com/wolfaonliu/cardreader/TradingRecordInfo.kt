@@ -1,45 +1,31 @@
-package com.wolfaonliu.cardreader;
+package com.wolfaonliu.cardreader
 
-import androidx.annotation.NonNull;
-
-import java.io.Serializable;
-import java.util.Locale;
-
+import java.io.Serializable
+import java.util.*
 
 //TODO 单个交易记录类
-public class TradingRecordInfo implements Serializable, Comparable<TradingRecordInfo> {
-    private static final long serialVersionUID = -6533154177080647539L;
-    private String tradingDateTime;
-    private String tradingMoney;
-    private int tradingType;
-
-    public int compareTo(@NonNull TradingRecordInfo tradingRecordInfo) {
-        return tradingRecordInfo.getTradingDateTime().compareTo(this.tradingDateTime);
+class TradingRecordInfo : Serializable, Comparable<TradingRecordInfo> {
+    var tradingDateTime: String? = null
+        private set
+    var tradingMoney: String? = null
+        private set
+    var tradingType = 0
+    override fun compareTo(other: TradingRecordInfo): Int {
+        return other.tradingDateTime!!.compareTo(tradingDateTime!!)
     }
 
-    public String getTradingDateTime() {
-        return this.tradingDateTime;
+    fun setTradingDateTime(str: String) {
+        tradingDateTime = str.substring(0, 4) + "." + str.substring(4, 6) + "." + str.substring(
+            6,
+            8
+        ) + " " + str.substring(8, 10) + ":" + str.substring(10, 12)
     }
 
-    public String getTradingMoney() {
-        return this.tradingMoney;
+    fun setTradingMoney(j: Long) {
+        tradingMoney = String.format(Locale.getDefault(), "%.2f", j / 100.0)
     }
 
-    public int getTradingType() {
-        return this.tradingType;
+    companion object {
+        private const val serialVersionUID = -6533154177080647539L
     }
-
-    public void setTradingDateTime(String str) {
-        this.tradingDateTime = str.substring(0, 4) + "." + str.substring(4, 6) + "." + str.substring(6, 8) + " " + str.substring(8, 10) + ":" + str.substring(10, 12);
-    }
-
-    public void setTradingMoney(long j) {
-        this.tradingMoney = String.format(Locale.getDefault(), "%.2f", j / 100.0);
-    }
-
-    public void setTradingType(int i) {
-
-        this.tradingType = i;
-    }
-
 }
