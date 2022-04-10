@@ -28,13 +28,16 @@ object E {
     fun e1(bArr: ByteArray?, i: Int): String {
         //新建长度为7的字节数组
         val bArr2 = ByteArray(7)
-        g.a(bArr, i, bArr2, 0, 7)
+        if (bArr != null) {
+            g.a(bArr, i, bArr2, 0, 7)
+        }
 
         //新建可变长字符串，长度为原来2倍
         val stringBuilder = StringBuilder(bArr2.size * 2)
         //迭代原来中字符
         for (aBArr in bArr2) {
             //240=1111 0000,取高4位单独存起来byte
+            //maosiyouwenti
             stringBuilder.append((aBArr.toInt() and 240 ushr 4).toByte())
             //15=0000 1111 ，取低四位byte
             stringBuilder.append((aBArr.toInt() and 15).toByte())
