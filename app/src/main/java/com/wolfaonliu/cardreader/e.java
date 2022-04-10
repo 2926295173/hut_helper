@@ -2,14 +2,20 @@ package com.wolfaonliu.cardreader;
 
 //TODO 工具类更名+整理
 public class e {
-
+    //byte 1字节=8 bit
     public static String b(byte[] bArr) {
+        //新建一个可变长度的字符串序列
         StringBuilder stringBuilder = new StringBuilder(bArr.length);
+        //迭代原始数组
         for (byte b : bArr) {
-            String toHexString = Integer.toHexString(b & 255);
+            byte c = (byte) 255;
+            //取八位,转化成16进制的字符
+            String toHexString = Integer.toHexString(b & c);
+            //判断字符长度是否小于2，是的话就填0（允许 0-F）
             if (toHexString.length() < 2) {
                 stringBuilder.append(0);
             }
+            //长度等于2就添加上大写的16进制
             stringBuilder.append(toHexString.toUpperCase());
 
         }
