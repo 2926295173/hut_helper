@@ -266,7 +266,7 @@ public class CardReader {
                 a = isoDep.transceive(a);
 //                DebugUtil.a("读钱包交易记录：", e.b(readCard));
 //                Log.d("读钱包交易记录：", e.b(a));
-                if (a != null && g.c(a) && Util.g(e.b(g.a(a)).replaceAll("0", ""))) {
+                if (a != null && g.c(a) && Util.g(E.b(g.a(a)).replaceAll("0", ""))) {
                     TradingRecordInfo tradingRecordInfo = new TradingRecordInfo();
                     byte[] bArr = new byte[6];
                     byte[] bArr2 = new byte[1];
@@ -274,9 +274,9 @@ public class CardReader {
                     g.a(a, 5, bArr3, 0, bArr3.length);
                     g.a(a, 9, bArr2, 0, bArr2.length);
                     g.a(a, 10, bArr, 0, bArr.length);
-                    tradingRecordInfo.setTradingDateTime(e.e1(a, 16));
-                    tradingRecordInfo.setTradingType(Integer.valueOf(e.b(bArr2), 16));
-                    tradingRecordInfo.setTradingMoney(Long.valueOf(e.b(bArr3), 16));
+                    tradingRecordInfo.setTradingDateTime(E.e1(a, 16));
+                    tradingRecordInfo.setTradingType(Integer.valueOf(E.b(bArr2), 16));
+                    tradingRecordInfo.setTradingMoney(Long.valueOf(E.b(bArr3), 16));
 //                    if (this.CJ != null) {
 //                    Log.d("读钱包交易记录：", String.valueOf(Long.valueOf(e.b(bArr3), 16).longValue()));
 //                    Log.d("读钱包交易记录：", String.valueOf(Integer.valueOf(e.b(bArr2), 16).intValue()));
