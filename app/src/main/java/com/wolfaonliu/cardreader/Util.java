@@ -29,19 +29,19 @@ public class Util {
         return str.toString();
     }
 
-    public static boolean unicodeBlockZ(String str) {
+    public static boolean unicodeBlockOfZ(String str) {
         char[] toCharArray = Pattern.compile("\\s*|\t*|\r*|\n*").matcher(str).replaceAll("").replaceAll("\\p{P}", "").trim().toCharArray();
         float length = (float) toCharArray.length;
         float f = 0.0f;
         for (char c : toCharArray) {
-            if (!(Character.isLetterOrDigit(c) || unicodeBlockZ(c))) {
+            if (!(Character.isLetterOrDigit(c) || unicodeBlockOfZ(c))) {
                 f += 1.0f;
             }
         }
         return ((double) (f / length)) > 0.4d;
     }
 
-    public static boolean unicodeBlockZ(char c) {
+    public static boolean unicodeBlockOfZ(char c) {
         Character.UnicodeBlock of = Character.UnicodeBlock.of(c);
         boolean o = (of == Character.UnicodeBlock.GENERAL_PUNCTUATION);
         boolean p = (of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION);
