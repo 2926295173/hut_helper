@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">新开普读卡器</string>
+    <string name="app_name">工大助手</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="full_name">新开普读卡器</string>
+    <string name="full_name">湖南工业大学一体化平台</string>
     <string name="background_descript">background</string>
     <string name="nfc_icon_descript">NFC_Icon</string>
     <string name="attention">将卡片放置到读卡区</string>
