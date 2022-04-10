@@ -24,25 +24,26 @@ public class e {
     }
 
 
-    public static String d(byte[] bArr) {
+    //被外部引用
+    public static String e1(byte[] bArr, int i) {
+        //新建长度为7的字节数组
+        byte[] bArr2 = new byte[7];
+        g.a(bArr, i, bArr2, 0, 7);
+
         //新建可变长字符串，长度为原来2倍
-        StringBuilder stringBuilder = new StringBuilder(bArr.length * 2);
+        StringBuilder stringBuilder = new StringBuilder(bArr2.length * 2);
         //迭代原来中字符
-        for (byte aBArr : bArr) {
+        for (byte aBArr : bArr2) {
             //240=1111 0000,取高4位单独存起来
             stringBuilder.append((byte) ((aBArr & (byte) 240) >>> 4));
             //15=0000 1111 ，取低四位
             stringBuilder.append((byte) (aBArr & (byte) 15));
         }
+        //用新字符串中第一个字符与0进行比较，是则返回0后面的，不是则全返回
         return stringBuilder.substring(0, 1).equalsIgnoreCase("0") ?
                 stringBuilder.substring(1) : stringBuilder.toString();
-    }
 
-    //被外部引用
-    public static String e1(byte[] bArr, int i) {
-        byte[] bArr2 = new byte[7];
-        g.a(bArr, i, bArr2, 0, 7);
-        return d(bArr2);
+
     }
 
 }

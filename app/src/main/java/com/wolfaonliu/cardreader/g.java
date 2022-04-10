@@ -43,7 +43,7 @@ public class g {
             return null;
         }
     }
-
+    //来自e的引用
     public static void a(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
         if (i2 + i3 > bArr2.length) {
             throw new RuntimeException("目标字节数组所分配的长度不够");
