@@ -2,9 +2,6 @@ package com.wolfaonliu.cardreader;
 
 //TODO 工具类更名+整理
 public class e {
-    private static byte a(char c) {
-        return (byte) "0123456789ABCDEF".indexOf(c);
-    }
 
     public static final String a(byte[] bArr, boolean z) {
         StringBuilder stringBuilder = new StringBuilder(bArr.length);
