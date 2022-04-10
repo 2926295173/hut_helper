@@ -8,56 +8,25 @@ import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
-/**
- * Created by Mogician on 2018/3/14.
- */
 
 public class Util {
-
+    //弹窗
     public static void aToast(String string, Activity activity) {
         Toast.makeText(activity, string, Toast.LENGTH_SHORT).show();
     }
 
+    //字节转换成16进制
     public static String byteToHex(byte[] bArr) {
         int i = 0;
-        String[] strArr = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
+        String[] strArr = new String[]
+                {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
         StringBuilder str = new StringBuilder();
         while (i < bArr.length) {
-            int i2 = bArr[i] & 255;
-            str = new StringBuilder((str + strArr[(i2 >> 4) & 15]) + strArr[i2 & 15]);
+            int i2 = bArr[i] & 0xFF;
+            str = new StringBuilder((str + strArr[(i2 >> 4) & 0xF]) + strArr[i2 & 0xF]);
             i++;
         }
         return str.toString();
-    }
-
-    //错误提示
-    public static void ErrorToast(int i, Activity activity) {
-        switch (i) {
-            case 1:
-                Util.aToast("Authentication Failed ", activity);
-                break;
-            case 2:
-                Util.aToast("Failed reading ", activity);
-                break;
-            case 3:
-                Util.aToast("Failed reading 0", activity);
-                break;
-            case 4:
-                Util.aToast("Tag reading error", activity);
-                break;
-            case 5:
-                Util.aToast("不是Mifare卡", activity);
-                break;
-            case 6:
-                Util.aToast("不是CPU卡", activity);
-                break;
-            case 7:
-                Util.aToast("未找到卡", activity);
-                break;
-            case 8:
-                Util.aToast("tag类型不对", activity);
-                break;
-        }
     }
 
     public static boolean a(String str) {
