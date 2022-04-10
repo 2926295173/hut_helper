@@ -50,9 +50,12 @@ public class Util {
         return str == null || str.trim().equals("");
     }
 
-    public static boolean g(String str) {
-
-        return !(str == null || str.trim().equals("") || str.equalsIgnoreCase("null"));
+    //判断有数据
+    public static boolean isNotNone(String str) {
+        boolean x = (str == null);
+        boolean y = (str.trim().equals(""));
+        boolean z = (str.equalsIgnoreCase("null"));
+        return !(x || y || z);
     }
 
     //获取版本号

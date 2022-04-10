@@ -57,7 +57,7 @@ public class CardReader {
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
 //                        Log.d("名字", action);
-                        if (Util.g(action)) {
+                        if (Util.isNotNone(action)) {
                             card.setStudentName(action);
 //                            Log.d("名字", action);
 //                            aToast(action);
@@ -125,7 +125,7 @@ public class CardReader {
 //测试部分，用于遍历卡内储存地址
 //
 //                    for(int j=0;j<fInts.tt.length;j++)
-////                        transceive = isoDep.transceive(g.a(fInts.tt[j]));
+////                        transceive = isoDep.transceive(isNotNone.a(fInts.tt[j]));
 //                        for(int ii=0x961600;ii<0x961700;ii=ii+0x1){
 //                            String sss;
 //                        if(ii<=0xF)
@@ -144,13 +144,13 @@ public class CardReader {
 //
 //                            Log.d("===", "============="+j+","+sss+"=================");
 //
-//                            transceive = isoDep.transceive(g.a(fInts.tt[j]));
+//                            transceive = isoDep.transceive(isNotNone.a(fInts.tt[j]));
 //                    //测试
-//                    if (transceive != null && g.c(transceive)) {
-//                        transceive = isoDep.transceive(g.a(sss));
-//                        if (transceive != null && g.c(transceive)) {
+//                    if (transceive != null && isNotNone.c(transceive)) {
+//                        transceive = isoDep.transceive(isNotNone.a(sss));
+//                        if (transceive != null && isNotNone.c(transceive)) {
 ////                            Log.d("测试", byteToHex(transceive));
-//                            transceive = g.a(transceive);
+//                            transceive = isNotNone.a(transceive);
 ////                            System.out.println(transceive);
 ////                            for(byte e : transceive) {
 ////                                System.out.print(e + " ");
@@ -164,7 +164,7 @@ public class CardReader {
 ////                            Log.d("测试", new String(transceive,"ISO-8859-1").trim());
 //
 //                            try {
-//                                intValue = Integer.valueOf(g.a(transceive, transceive.length), 16).intValue();
+//                                intValue = Integer.valueOf(isNotNone.a(transceive, transceive.length), 16).intValue();
 //                                action = (intValue / 100) + "." + (intValue % 100);
 ////                                    bVar.e(action);
 //                                Log.d("测试", action);
@@ -185,14 +185,14 @@ public class CardReader {
 //                    }
 //
 //for(int j=0;j<fInts.tt.length;j++) {
-//    transceive = isoDep.transceive(g.a(fInts.tt[j]));
-//    if (transceive != null && g.c(transceive)) {
-//        a = g.ReadTrade(transceive);
+//    transceive = isoDep.transceive(isNotNone.a(fInts.tt[j]));
+//    if (transceive != null && isNotNone.c(transceive)) {
+//        a = isNotNone.ReadTrade(transceive);
 //        Log.d("测试0,"+j, String.valueOf(a));
-//        Log.d("测试0.5,"+j, g.a(transceive, transceive.length));
-//        g.a(ReadTrade, 0, transceive, 0, transceive.length - 2);
+//        Log.d("测试0.5,"+j, isNotNone.a(transceive, transceive.length));
+//        isNotNone.a(ReadTrade, 0, transceive, 0, transceive.length - 2);
 //        Log.d("测试1,"+j, String.valueOf(a));
-//        action = g.a(ReadTrade, 0, ReadTrade.length, "UTF-8").trim();
+//        action = isNotNone.a(ReadTrade, 0, ReadTrade.length, "UTF-8").trim();
 ////                        Log.d("***", action);
 //        Log.d("测试2,"+j, action);
 //        Log.d("eiiiiii", "======================================");
@@ -213,12 +213,12 @@ public class CardReader {
 //
 //
 //                    //未知3，同交易记录
-//                    transceive = isoDep.transceive(g.a(fInts.f));
-//                    if (transceive != null && g.c(transceive)) {
-//                        transceive = isoDep.transceive(g.a(fInts.n));
-//                        if (transceive != null && g.c(transceive)) {
-//                            transceive = g.a(transceive);
-//                            intValue = Integer.valueOf(g.a(transceive, transceive.length), 16);
+//                    transceive = isoDep.transceive(isNotNone.a(fInts.f));
+//                    if (transceive != null && isNotNone.c(transceive)) {
+//                        transceive = isoDep.transceive(isNotNone.a(fInts.n));
+//                        if (transceive != null && isNotNone.c(transceive)) {
+//                            transceive = isNotNone.a(transceive);
+//                            intValue = Integer.valueOf(isNotNone.a(transceive, transceive.length), 16);
 //                            action = (intValue / 100) + "." + (intValue % 100);
 ////                                    bVar.f(action);
 //                            Log.d("未知3***", action);
@@ -262,7 +262,7 @@ public class CardReader {
                 a = isoDep.transceive(a);
 //                DebugUtil.a("读钱包交易记录：", e.b(readCard));
 //                Log.d("读钱包交易记录：", e.b(a));
-                if (a != null && g.c(a) && Util.g(E.b(g.a(a)).replaceAll("0", ""))) {
+                if (a != null && g.c(a) && Util.isNotNone(E.b(g.a(a)).replaceAll("0", ""))) {
                     TradingRecordInfo tradingRecordInfo = new TradingRecordInfo();
                     byte[] bArr = new byte[6];
                     byte[] bArr2 = new byte[1];
