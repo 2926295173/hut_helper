@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="background_descript">background</string>
+    <string name="nfc_icon_descript">NFC_Icon</string>
+
+    <string name="app_name">新开普读卡器</string>
+    <string name="full_name">新开普读卡器</string>
+    <string name="attention">将卡片放置到读卡区</string>
+    <string name="card_cate">卡类型</string>
+    <string name="name">姓名</string>
+    <string name="student_Id">学号</string>
+    <string name="balance">余额</string>
+    <string name="hardware_Id">硬件ID</string>
+    <string name="Dept">学院</string>
+    <string name="pId">身份证号</string>
+    <string name="deal_List">交易记录</string>
+    <string name="type_demo">Type</string>
+    <string name="time_demo">Time</string>
+    <string name="deal_Demo">Deal</string>
+    <string name="read_failed">读卡失败！</string>
+    <string name="reading_alert">警告,请重新放置卡片</string>
+    <string name="failed">失败,不支持的卡片</string>
+    <string name="success">成功</string>
+    <string name="isStuCard">校园卡</string>
+    <string name="unsupport">不支持的卡片</string>
+    <string name="yuan">元</string>
+    <string name="consumption">消费</string>
+    <string name="recharge">充值</string>
+    <string name="share">分享</string>
+    <string name="readCard">读卡</string>
+    <string name="about">关于</string>
+    <string name="other">其他</string>
+    <string name="title_activity_about">关于</string>
+    <string name="version">版本号</string>
+    <string name="developer">开发者</string>
+    <string name="github">Github</string>
+    <string name="donate">捐赠</string>
+    <string name="contact">联系方式</string>
+    <string name="Report">邮件反馈</string>
+    <string name="report_atten">可以通过邮件向开发者反馈，该操作会唤起邮件应用。</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="email_clint">选择邮件客户端</string>
+    <string name="report">反馈</string>
+    <string name="intho">理论上适用于所有新开普公司提供的校园卡</string>
+    <string name="aftertest">目前仅在东北大学校园卡测试通过</string>
+</resources>
