@@ -57,7 +57,7 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
         s[1][0] = getString(R.string.developer);
         s[1][1] = "wolfaonliu";
         s[2][0] = getString(R.string.contact);
-        s[2][1] = "wolfaonliu@gmail.com";
+        s[2][1] = "wolfaonliuxgmailcom";
         s[3][0] = getString(R.string.github);
         s[3][1] = "https://github.com/liuyanyi/NewcapecCardReader";
         settings.addAll(Arrays.asList(s));
@@ -77,7 +77,7 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
         Intent intent;
         switch (position) {
             case 2:
-//                uri = Uri.parse("wolfaonliu@gmail.com");
+//                uri = Uri.parse("wolfaonliuxgmailcom");
 //                intent = new Intent(Intent.ACTION_SENDTO, uri);
 ////                intent.putExtra(Intent.EXTRA_SUBJECT, "Newcapec Card Reader Report");
 //                startActivity(intent);
@@ -104,7 +104,7 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onClick(DialogInterface dialog, int which) {
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.setType("message/rfc822");
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"wolfaonliu@gmail.com"});
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"wolfaonliuxgmailcom"});
                 email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + getString(R.string.report));
                 startActivity(Intent.createChooser(email, getString(R.string.email_clint)));
             }
