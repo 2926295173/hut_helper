@@ -1,5 +1,7 @@
 package com.wolfaonliu.cardreader
 
+import java.nio.charset.Charset
+
 //TODO 工具类更名
 //重载很多
 object g {
@@ -16,6 +18,8 @@ object g {
         return "0123456789ABCDEF".indexOf(c).toByte()
     }
 
+    //ba,i
+    @JvmStatic
     fun a(bArr: ByteArray, i: Int): String {
         //计数
         var i2 = 0
@@ -31,23 +35,29 @@ object g {
             }
             i3++
             //取8位，返回整数
-            val i5: Int = b.toInt() and 255
-            //取高4位
+            val i5: Int = b.toInt() and 0xFF
+            //取高4位,无符号右移4
             bArr2[i4] = a[i5 ushr 4]
             val i6 = i4 + 1
             i4 = i6 + 1
             //取低四位
-            bArr2[i6] = a[i5 and 15]
+            bArr2[i6] = a[i5 and 0xF]
             i2++
         }
         return String(bArr2)
     }
 
+    //ba,i,i2,str
+    @JvmStatic
     fun a(bArr: ByteArray, i: Int, i2: Int, str: String?): String? {
         return try {
             val bArr2 = ByteArray(i2)
+
+            //val i=0
             a(bArr, i, bArr2, 0, i2)
-            String(bArr2, str)
+            //GB18030
+            val str = Charset.forName(str)
+            String(bArr2, str)//gb18030
         } catch (e: Exception) {
             e.printStackTrace()
             null
@@ -55,6 +65,7 @@ object g {
     }
 
     //来自e的引用
+    @JvmStatic
     fun a(bArr: ByteArray, i: Int, bArr2: ByteArray, i2: Int, i3: Int) {
         if (i2 + i3 > bArr2.size) {
             throw RuntimeException("目标字节数组所分配的长度不够")
@@ -65,6 +76,7 @@ object g {
         }
     }
 
+    @JvmStatic
     fun a(str: String): ByteArray {
         val length = str.length / 2
         val bArr = ByteArray(length)
@@ -76,7 +88,7 @@ object g {
             //example
             val y = (a(toCharArray[i2]).toInt() shl 4)
             //x or y可能超出byte范围，所以进行其他位清零
-            val z = (x or y) and 255
+            val z = (x or y) and 0xFF
             bArr[i] = z.toByte()
         }
         return bArr

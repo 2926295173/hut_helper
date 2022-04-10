@@ -9,10 +9,6 @@ import android.util.Log;
 
 import java.io.IOException;
 
-/**
- * Created by Mogician on 2018/3/14.
- */
-
 public class CardReader {
 
 

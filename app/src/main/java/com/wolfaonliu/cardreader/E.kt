@@ -11,7 +11,7 @@ object E {
         for (b in bArr) {
 
             //取八位,转化成16进制的字符
-            val toHexString = Integer.toHexString(b.toInt() and 255)
+            val toHexString = Integer.toHexString(b.toInt() and 0xFF)
             //判断字符长度是否小于2，是的话就填0（允许 0-F）
             if (toHexString.length < 2) {
                 stringBuilder.append(0)
@@ -38,9 +38,9 @@ object E {
         for (aBArr in bArr2) {
             //240=1111 0000,取高4位单独存起来byte
             //maosiyouwenti
-            stringBuilder.append((aBArr.toInt() and 240 ushr 4).toByte())
+            stringBuilder.append((aBArr.toInt() and 0xF0 ushr 4).toByte())
             //15=0000 1111 ，取低四位byte
-            stringBuilder.append((aBArr.toInt() and 15).toByte())
+            stringBuilder.append((aBArr.toInt() and 0xF).toByte())
         }
         //用新字符串中第一个字符与0进行比较，是则返回0后面的，不是则全返回
         return if (stringBuilder.substring(0, 1)
