@@ -27,7 +27,7 @@ object Util {
         }
         return str.toString()
     }
-
+    @JvmStatic
     fun unicodeBlockOfZ(str: String?): Boolean {
         val toCharArray = Pattern.compile("\\s*|\t*|\r*|\n*").matcher(str).replaceAll("")
             .replace("\\p{P}".toRegex(), "").trim { it <= ' ' }

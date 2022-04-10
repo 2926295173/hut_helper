@@ -40,17 +40,17 @@ public class CardReader {
             isoDep.connect();
 //            unicodeBlockOfZ(this.NfcMainfare);
 //            extraID();
-            isoDep.transceive(g.a(fInts.a));
-            byte[] transceive = isoDep.transceive(g.a(fInts.c));
+            isoDep.transceive(g.a(FInts.a));
+            byte[] transceive = isoDep.transceive(g.a(FInts.c));
             if (transceive != null && g.c(transceive)) {
-                transceive = isoDep.transceive(g.a(fInts.d));
+                transceive = isoDep.transceive(g.a(FInts.d));
                 if (transceive == null || !g.c(transceive)) {
                     Util.aToast(activity.getString(R.string.read_failed), activity);
                 } else {
                     byte[] a;
 
 
-                    transceive = isoDep.transceive(g.a(fInts.j));
+                    transceive = isoDep.transceive(g.a(FInts.j));
                     //名字
                     if (transceive != null && g.c(transceive)) {
                         a = g.a(transceive);
@@ -65,7 +65,7 @@ public class CardReader {
                         }
                     }
 
-                    transceive = isoDep.transceive(g.a(fInts.h));
+                    transceive = isoDep.transceive(g.a(FInts.h));
                     //卡号
                     if (transceive != null && g.c(transceive)) {
                         a = g.a(transceive);
@@ -75,7 +75,7 @@ public class CardReader {
                         card.setStudentId(action);
                     }
 
-                    transceive = isoDep.transceive(g.a(fInts.personId));
+                    transceive = isoDep.transceive(g.a(FInts.personId));
                     //身份证
                     if (transceive != null && g.c(transceive)) {
                         a = g.a(transceive);
@@ -86,7 +86,7 @@ public class CardReader {
                     }
 
 
-                    transceive = isoDep.transceive(g.a(fInts.g));
+                    transceive = isoDep.transceive(g.a(FInts.g));
                     //学院
                     if (transceive != null && g.c(transceive)) {
                         a = g.a(transceive);
@@ -104,10 +104,10 @@ public class CardReader {
                     }
 
                     int intValue;
-                    transceive = isoDep.transceive(g.a(fInts.e));
+                    transceive = isoDep.transceive(g.a(FInts.e));
                     //余额
                     if (transceive != null && g.c(transceive)) {
-                        transceive = isoDep.transceive(g.a(fInts.n));
+                        transceive = isoDep.transceive(g.a(FInts.n));
                         if (transceive != null && g.c(transceive)) {
                             transceive = g.a(transceive);
                             intValue = Integer.valueOf(g.a(transceive, transceive.length), 16);
@@ -256,7 +256,7 @@ public class CardReader {
 
     public static void ReadTrade(IsoDep isoDep, CardInfo card) {
         for (int i = 0; i < 10; i++) {
-            byte[] a = g.a(fInts.t);
+            byte[] a = g.a(FInts.t);
             a[2] = (byte) (i + 1);
             try {
                 a = isoDep.transceive(a);
