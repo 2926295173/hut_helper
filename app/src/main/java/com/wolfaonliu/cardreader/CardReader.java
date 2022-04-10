@@ -30,7 +30,7 @@ public class CardReader {
         IsoDep isoDep = IsoDep.get((Tag) intent.getParcelableExtra("android.nfc.extra.TAG"));
         if (isoDep == null) {
 //            extraID();
-//            a(this.NfcMainfare);
+//            unicodeBlockZ(this.NfcMainfare);
             return null;
         }
 
@@ -38,7 +38,7 @@ public class CardReader {
         try {
 
             isoDep.connect();
-//            a(this.NfcMainfare);
+//            unicodeBlockZ(this.NfcMainfare);
 //            extraID();
             isoDep.transceive(g.a(fInts.a));
             byte[] transceive = isoDep.transceive(g.a(fInts.c));
@@ -56,12 +56,12 @@ public class CardReader {
                         a = g.a(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
-//                        Log.d("名字", action);
-                        if (Util.isNotNone(action)) {
+//                        Log.isNone2("名字", action);
+                        if (Util.isNotNone3(action)) {
                             card.setStudentName(action);
-//                            Log.d("名字", action);
+//                            Log.isNone2("名字", action);
 //                            aToast(action);
-//                            Log.d("名字","r1");
+//                            Log.isNone2("名字","r1");
                         }
                     }
 
@@ -71,7 +71,7 @@ public class CardReader {
                         a = g.a(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
-//                        Log.d("卡号", action);
+//                        Log.isNone2("卡号", action);
                         card.setStudentId(action);
                     }
 
@@ -81,7 +81,7 @@ public class CardReader {
                         a = g.a(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
-//                        Log.d("卡号", action);
+//                        Log.isNone2("卡号", action);
                         card.setPersonId(action);
                     }
 
@@ -92,13 +92,13 @@ public class CardReader {
                         a = g.a(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
-//                        Log.d("***", action);
-                        if (Util.d(action) || Util.a(action) || action.contains("000000")) {
-//                                    bVar.d(action);
-//                            Log.d("学院******", action);
+//                        Log.isNone2("***", action);
+                        if (Util.isNone2(action) || Util.unicodeBlockZ(action) || action.contains("000000")) {
+//                                    bVar.isNone2(action);
+//                            Log.isNone2("学院******", action);
                         } else {
 //                          bVar.c(action);
-//                            Log.d("学院***", action);
+//                            Log.isNone2("学院***", action);
                             card.setStudentDept(action);
                         }
                     }
@@ -114,7 +114,7 @@ public class CardReader {
                             action = (intValue / 100) + "." + (intValue % 100);
 
 //                                    bVar.e(action);
-//                            Log.d("余额", action);
+//                            Log.isNone2("余额", action);
                             card.setCardBalance(action);
                         }
                     }
@@ -125,7 +125,7 @@ public class CardReader {
 //测试部分，用于遍历卡内储存地址
 //
 //                    for(int j=0;j<fInts.tt.length;j++)
-////                        transceive = isoDep.transceive(isNotNone.a(fInts.tt[j]));
+////                        transceive = isoDep.transceive(isNotNone3.unicodeBlockZ(fInts.tt[j]));
 //                        for(int ii=0x961600;ii<0x961700;ii=ii+0x1){
 //                            String sss;
 //                        if(ii<=0xF)
@@ -142,91 +142,91 @@ public class CardReader {
 //                            sss="00B0"+""+Integer.toHexString(ii).toUpperCase();
 //
 //
-//                            Log.d("===", "============="+j+","+sss+"=================");
+//                            Log.isNone2("===", "============="+j+","+sss+"=================");
 //
-//                            transceive = isoDep.transceive(isNotNone.a(fInts.tt[j]));
+//                            transceive = isoDep.transceive(isNotNone3.unicodeBlockZ(fInts.tt[j]));
 //                    //测试
-//                    if (transceive != null && isNotNone.c(transceive)) {
-//                        transceive = isoDep.transceive(isNotNone.a(sss));
-//                        if (transceive != null && isNotNone.c(transceive)) {
-////                            Log.d("测试", byteToHex(transceive));
-//                            transceive = isNotNone.a(transceive);
+//                    if (transceive != null && isNotNone3.c(transceive)) {
+//                        transceive = isoDep.transceive(isNotNone3.unicodeBlockZ(sss));
+//                        if (transceive != null && isNotNone3.c(transceive)) {
+////                            Log.isNone2("测试", byteToHex(transceive));
+//                            transceive = isNotNone3.unicodeBlockZ(transceive);
 ////                            System.out.println(transceive);
 ////                            for(byte e : transceive) {
 ////                                System.out.print(e + " ");
 ////                            }
 //                            String str2=new String(transceive);
 ////                            System.out.println("\n打印2："+str2);
-////                            Log.d("测试", byteToHex(transceive));
-////                            Log.d("测试", transceive.toString().trim());
-//                            Log.d("测试", new String(transceive,"GB18030").trim());
-////                            Log.d("测试", new String(transceive,"UTF-8").trim());
-////                            Log.d("测试", new String(transceive,"ISO-8859-1").trim());
+////                            Log.isNone2("测试", byteToHex(transceive));
+////                            Log.isNone2("测试", transceive.toString().trim());
+//                            Log.isNone2("测试", new String(transceive,"GB18030").trim());
+////                            Log.isNone2("测试", new String(transceive,"UTF-8").trim());
+////                            Log.isNone2("测试", new String(transceive,"ISO-8859-1").trim());
 //
 //                            try {
-//                                intValue = Integer.valueOf(isNotNone.a(transceive, transceive.length), 16).intValue();
+//                                intValue = Integer.valueOf(isNotNone3.unicodeBlockZ(transceive, transceive.length), 16).intValue();
 //                                action = (intValue / 100) + "." + (intValue % 100);
 ////                                    bVar.e(action);
-//                                Log.d("测试", action);
+//                                Log.isNone2("测试", action);
 //                            }catch (NumberFormatException e){
-//                                Log.d("测试", "boom");
+//                                Log.isNone2("测试", "boom");
 //                            }
 //
 ////                            card.setCardBalance(action);
 //                        }else{
-////                            Log.d("测试", "无2");
+////                            Log.isNone2("测试", "无2");
 //                        }
-////                        a(isoDep);
+////                        unicodeBlockZ(isoDep);
 //                    }else{
-////                        Log.d("测试", "无1");
+////                        Log.isNone2("测试", "无1");
 //                    }
-////                                Log.d("===", "======================================");
+////                                Log.isNone2("===", "======================================");
 //
 //                    }
 //
 //for(int j=0;j<fInts.tt.length;j++) {
-//    transceive = isoDep.transceive(isNotNone.a(fInts.tt[j]));
-//    if (transceive != null && isNotNone.c(transceive)) {
-//        a = isNotNone.ReadTrade(transceive);
-//        Log.d("测试0,"+j, String.valueOf(a));
-//        Log.d("测试0.5,"+j, isNotNone.a(transceive, transceive.length));
-//        isNotNone.a(ReadTrade, 0, transceive, 0, transceive.length - 2);
-//        Log.d("测试1,"+j, String.valueOf(a));
-//        action = isNotNone.a(ReadTrade, 0, ReadTrade.length, "UTF-8").trim();
-////                        Log.d("***", action);
-//        Log.d("测试2,"+j, action);
-//        Log.d("eiiiiii", "======================================");
-//        if (Util.d(action) || a(action) || action.contains("000000")) {
-////                                    bVar.d(action);
-////                            Log.d("学院******", action);
+//    transceive = isoDep.transceive(isNotNone3.unicodeBlockZ(fInts.tt[j]));
+//    if (transceive != null && isNotNone3.c(transceive)) {
+//        unicodeBlockZ = isNotNone3.ReadTrade(transceive);
+//        Log.isNone2("测试0,"+j, String.valueOf(unicodeBlockZ));
+//        Log.isNone2("测试0.5,"+j, isNotNone3.unicodeBlockZ(transceive, transceive.length));
+//        isNotNone3.unicodeBlockZ(ReadTrade, 0, transceive, 0, transceive.length - 2);
+//        Log.isNone2("测试1,"+j, String.valueOf(unicodeBlockZ));
+//        action = isNotNone3.unicodeBlockZ(ReadTrade, 0, ReadTrade.length, "UTF-8").trim();
+////                        Log.isNone2("***", action);
+//        Log.isNone2("测试2,"+j, action);
+//        Log.isNone2("eiiiiii", "======================================");
+//        if (Util.isNone2(action) || unicodeBlockZ(action) || action.contains("000000")) {
+////                                    bVar.isNone2(action);
+////                            Log.isNone2("学院******", action);
 //        } else {
 ////                          bVar.c(action);
-////                            Log.d("学院***", action);
+////                            Log.isNone2("学院***", action);
 ////                            card.setStudentDept(action);
 //        }
 //    } else {
-//        Log.d("测试", "无,"+j);
-//        Log.d("eiiiiii", "======================================");
+//        Log.isNone2("测试", "无,"+j);
+//        Log.isNone2("eiiiiii", "======================================");
 //    }
 //
 //}
 //
 //
 //                    //未知3，同交易记录
-//                    transceive = isoDep.transceive(isNotNone.a(fInts.f));
-//                    if (transceive != null && isNotNone.c(transceive)) {
-//                        transceive = isoDep.transceive(isNotNone.a(fInts.n));
-//                        if (transceive != null && isNotNone.c(transceive)) {
-//                            transceive = isNotNone.a(transceive);
-//                            intValue = Integer.valueOf(isNotNone.a(transceive, transceive.length), 16);
+//                    transceive = isoDep.transceive(isNotNone3.unicodeBlockZ(fInts.f));
+//                    if (transceive != null && isNotNone3.c(transceive)) {
+//                        transceive = isoDep.transceive(isNotNone3.unicodeBlockZ(fInts.n));
+//                        if (transceive != null && isNotNone3.c(transceive)) {
+//                            transceive = isNotNone3.unicodeBlockZ(transceive);
+//                            intValue = Integer.valueOf(isNotNone3.unicodeBlockZ(transceive, transceive.length), 16);
 //                            action = (intValue / 100) + "." + (intValue % 100);
 ////                                    bVar.f(action);
-//                            Log.d("未知3***", action);
+//                            Log.isNone2("未知3***", action);
 //
 //                        }
 //                        ReadTrade(isoDep);
 //                    }
-////                    Log.d("***", String.valueOf(Float.parseFloat(this.w) + Float.parseFloat(this.x)) + "元");
+////                    Log.isNone2("***", String.valueOf(Float.parseFloat(this.w) + Float.parseFloat(this.x)) + "元");
 
 
                 }
@@ -260,9 +260,9 @@ public class CardReader {
             a[2] = (byte) (i + 1);
             try {
                 a = isoDep.transceive(a);
-//                DebugUtil.a("读钱包交易记录：", e.b(readCard));
-//                Log.d("读钱包交易记录：", e.b(a));
-                if (a != null && g.c(a) && Util.isNotNone(E.b(g.a(a)).replaceAll("0", ""))) {
+//                DebugUtil.unicodeBlockZ("读钱包交易记录：", e.b(readCard));
+//                Log.isNone2("读钱包交易记录：", e.b(unicodeBlockZ));
+                if (a != null && g.c(a) && Util.isNotNone3(E.b(g.a(a)).replaceAll("0", ""))) {
                     TradingRecordInfo tradingRecordInfo = new TradingRecordInfo();
                     byte[] bArr = new byte[6];
                     byte[] bArr2 = new byte[1];
@@ -274,16 +274,16 @@ public class CardReader {
                     tradingRecordInfo.setTradingType(Integer.valueOf(E.b(bArr2), 16));
                     tradingRecordInfo.setTradingMoney(Long.valueOf(E.b(bArr3), 16));
 //                    if (this.CJ != null) {
-//                    Log.d("读钱包交易记录：", String.valueOf(Long.valueOf(e.b(bArr3), 16).longValue()));
-//                    Log.d("读钱包交易记录：", String.valueOf(Integer.valueOf(e.b(bArr2), 16).intValue()));
-//                    Log.d("读钱包交易记录：", e.e1(a, 16));
+//                    Log.isNone2("读钱包交易记录：", String.valueOf(Long.valueOf(e.b(bArr3), 16).longValue()));
+//                    Log.isNone2("读钱包交易记录：", String.valueOf(Integer.valueOf(e.b(bArr2), 16).intValue()));
+//                    Log.isNone2("读钱包交易记录：", e.e1(unicodeBlockZ, 16));
                     card.addDeal(tradingRecordInfo);
                     //TODO 读取交易信息至ListView中
                     //this.CJ.NfcTradeInfo(tradingRecordInfo);
 //                    }
                 }
             } catch (IOException e) {
-//                                Log.d("读钱包交易记录：", "boom");
+//                                Log.isNone2("读钱包交易记录：", "boom");
                 e.printStackTrace();
             }
         }
