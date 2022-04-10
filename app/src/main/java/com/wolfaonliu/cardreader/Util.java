@@ -51,16 +51,18 @@ public class Util {
     }
 
     public static boolean g(String str) {
+
         return !(str == null || str.trim().equals("") || str.equalsIgnoreCase("null"));
     }
 
+    //获取版本号
     public static String getVersion(Context context) {
         String ver = "";
         try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
             ver = packageInfo.versionName;
-            if (ver == "" || ver.length() <= 0) {
+            if (ver.equals("") || ver.length() <= 0) {
                 return "";
             }
         } catch (PackageManager.NameNotFoundException e) {
