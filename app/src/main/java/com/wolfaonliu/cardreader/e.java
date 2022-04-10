@@ -3,7 +3,7 @@ package com.wolfaonliu.cardreader;
 //TODO 工具类更名+整理
 public class e {
 
-    public static String a(byte[] bArr, boolean z) {
+    public static String b(byte[] bArr) {
         StringBuilder stringBuilder = new StringBuilder(bArr.length);
         for (byte b : bArr) {
             String toHexString = Integer.toHexString(b & 255);
@@ -11,16 +11,11 @@ public class e {
                 stringBuilder.append(0);
             }
             stringBuilder.append(toHexString.toUpperCase());
-            if (z) {
-                stringBuilder.append(" ");
-            }
+
         }
         return stringBuilder.toString();
     }
 
-    public static String b(byte[] bArr) {
-        return a(bArr, false);
-    }
 
 
     public static String d(byte[] bArr) {
@@ -32,7 +27,7 @@ public class e {
         return stringBuilder.toString().substring(0, 1).equalsIgnoreCase("0") ? stringBuilder.toString().substring(1) : stringBuilder.toString();
     }
 
-
+    //被外部引用
     public static String e1(byte[] bArr, int i) {
         byte[] bArr2 = new byte[7];
         g.a(bArr, i, bArr2, 0, 7);
