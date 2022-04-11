@@ -33,12 +33,7 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
         toolbar = findViewById(R.id.about_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
         initData();
         initView();
     }
@@ -54,11 +49,11 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
         s[0][0] = getString(R.string.version);
         s[0][1] = Util.getVersion(this.getApplicationContext());
         s[1][0] = getString(R.string.developer);
-        s[1][1] = "wolfaonliu";
+        s[1][1] = "aoian";
         s[2][0] = getString(R.string.contact);
         s[2][1] = "wolfaonliuxgmailcom";
         s[3][0] = getString(R.string.github);
-        s[3][1] = "https://github.com/liuyanyi/NewcapecCardReader";
+        s[3][1] = "https://github.com/2926295173/hut_helper";
         settings.addAll(Arrays.asList(s));
         return settings;
     }
