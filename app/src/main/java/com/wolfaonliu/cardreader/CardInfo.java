@@ -2,9 +2,11 @@ package com.wolfaonliu.cardreader;
 
 import android.app.Activity;
 import android.graphics.Color;
+
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,9 +15,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Mogician on 2018/3/12.
- */
 
 public class CardInfo {
 

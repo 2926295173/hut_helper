@@ -1,7 +1,9 @@
 package com.wolfaonliu.cardreader;
 
 import android.app.Activity;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +11,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Mogician on 2018/3/14.
- */
 
 public class DealAdapter extends RecyclerView.Adapter<DealAdapter.ViewHolder> {
 
