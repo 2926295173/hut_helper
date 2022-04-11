@@ -5,12 +5,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,8 +20,6 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
 
     Toolbar toolbar;
 
-
-    private ListView mView;
 
     private AboutAdapter mAdapter;
 
@@ -65,7 +64,7 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     private void initView() {
-        mView = findViewById(R.id.set_list);
+        ListView mView = findViewById(R.id.set_list);
         // 设置adapter
         mView.setAdapter(mAdapter);
         mView.setOnItemClickListener(this);
