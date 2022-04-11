@@ -37,7 +37,6 @@ object E {
         //迭代原来中字符
         for (aBArr in bArr2) {
             //240=1111 0000,取高4位单独存起来byte
-            //maosiyouwenti
             stringBuilder.append((aBArr.toInt() and 0xF0 ushr 4).toByte())
             //15=0000 1111 ，取低四位byte
             stringBuilder.append((aBArr.toInt() and 0xF).toByte())
