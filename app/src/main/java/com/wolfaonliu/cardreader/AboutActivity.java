@@ -1,17 +1,17 @@
 package com.wolfaonliu.cardreader;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,21 +71,17 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
         Intent intent;
         switch (position) {
             case 2:
-//                uri = Uri.parse("wolfaonliuxgmailcom");
-//                intent = new Intent(Intent.ACTION_SENDTO, uri);
-////                intent.putExtra(Intent.EXTRA_SUBJECT, "Newcapec Card Reader Report");
-//                startActivity(intent);
                 showEmailDialog();
                 break;
             case 3:
-                uri = Uri.parse("https://github.com/liuyanyi/NewcapecCardReader");
+                uri = Uri.parse("https://github.com/2926295173/hut_helper");
                 intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 break;
             default:
                 break;
         }
-//        Toast.makeText(this, "你点击了第" + position + "项", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "你点击了第" + position + "项", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -93,15 +89,12 @@ public class AboutActivity extends AppCompatActivity implements AdapterView.OnIt
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.Report)
                 .setMessage(R.string.report_atten);
-        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.setType("message/rfc822");
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"wolfaonliuxgmailcom"});
-                email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + getString(R.string.report));
-                startActivity(Intent.createChooser(email, getString(R.string.email_clint)));
-            }
+        builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+            Intent email = new Intent(Intent.ACTION_SEND);
+            email.setType("message/rfc822");
+            email.putExtra(Intent.EXTRA_EMAIL, new String[]{"wolfaonliuxgmailcom"});
+            email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + getString(R.string.report));
+            startActivity(Intent.createChooser(email, getString(R.string.email_clint)));
         });
         builder.setNegativeButton(R.string.no, null);
 
