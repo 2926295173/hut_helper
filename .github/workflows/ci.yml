@@ -64,7 +64,7 @@ jobs:
         with:
           arguments: -PappVerName=${{ env.VERSION }} assembleRelease
       - name: Sign Android release
-        if: success() && github.event_name != 'pull_request' && github.repository == 2926295173/hut_helper'
+        if: success() && github.event_name != 'pull_request' && github.repository == '2926295173/hut_helper'
         id: sign
         uses: r0adkll/sign-android-release@v1.0.4
         env:
