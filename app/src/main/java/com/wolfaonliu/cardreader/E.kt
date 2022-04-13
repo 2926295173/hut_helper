@@ -29,7 +29,7 @@ object E {
         //新建长度为7的字节数组
         val bArr2 = ByteArray(7)
         if (bArr != null) {
-            g.a(bArr, i, bArr2, 0, 7)
+            g.bArrCopy(bArr, i, bArr2, 0, 7)
         }
 
         //新建可变长字符串，长度为原来2倍

@@ -40,22 +40,22 @@ public class CardReader {
             isoDep.connect();
 //            unicodeBlockOfZ(this.NfcMainfare);
 //            extraID();
-            isoDep.transceive(g.a(FInts.a));
-            byte[] transceive = isoDep.transceive(g.a(FInts.c));
+            isoDep.transceive(g.stingTobArr(FInts.a));
+            byte[] transceive = isoDep.transceive(g.stingTobArr(FInts.c));
             if (transceive != null && g.is9000last(transceive)) {
-                transceive = isoDep.transceive(g.a(FInts.d));
+                transceive = isoDep.transceive(g.stingTobArr(FInts.d));
                 if (transceive == null || !g.is9000last(transceive)) {
                     Util.aToast(activity.getString(R.string.read_failed), activity);
                 } else {
                     byte[] a;
 
 
-                    transceive = isoDep.transceive(g.a(FInts.j));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.j));
                     //名字
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
-                        g.a(a, 0, transceive, 0, transceive.length - 2);
-                        action = g.a(a, 0, a.length, "GB18030").trim();
+                        g.bArrCopy(a, 0, transceive, 0, transceive.length - 2);
+                        action = g.bArrCopy(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("名字", action);
                         if (Util.isNotNone3(action)) {
                             card.setStudentName(action);
@@ -65,33 +65,33 @@ public class CardReader {
                         }
                     }
 
-                    transceive = isoDep.transceive(g.a(FInts.h));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.h));
                     //卡号
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
-                        g.a(a, 0, transceive, 0, transceive.length - 2);
-                        action = g.a(a, 0, a.length, "GB18030").trim();
+                        g.bArrCopy(a, 0, transceive, 0, transceive.length - 2);
+                        action = g.bArrCopy(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("卡号", action);
                         card.setStudentId(action);
                     }
 
-                    transceive = isoDep.transceive(g.a(FInts.personId));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.personId));
                     //身份证
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
-                        g.a(a, 0, transceive, 0, transceive.length - 2);
-                        action = g.a(a, 0, a.length, "GB18030").trim();
+                        g.bArrCopy(a, 0, transceive, 0, transceive.length - 2);
+                        action = g.bArrCopy(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("卡号", action);
                         card.setPersonId(action);
                     }
 
 
-                    transceive = isoDep.transceive(g.a(FInts.g));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.g));
                     //学院
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
-                        g.a(a, 0, transceive, 0, transceive.length - 2);
-                        action = g.a(a, 0, a.length, "GB18030").trim();
+                        g.bArrCopy(a, 0, transceive, 0, transceive.length - 2);
+                        action = g.bArrCopy(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("***", action);
                         if (Util.isNone2(action) || Util.unicodeBlockOfZ(action) || action.contains("000000")) {
 //                                    bVar.isNone2(action);
@@ -104,13 +104,13 @@ public class CardReader {
                     }
 
                     int intValue;
-                    transceive = isoDep.transceive(g.a(FInts.e));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.e));
                     //余额
                     if (transceive != null && g.is9000last(transceive)) {
-                        transceive = isoDep.transceive(g.a(FInts.n));
+                        transceive = isoDep.transceive(g.stingTobArr(FInts.n));
                         if (transceive != null && g.is9000last(transceive)) {
                             transceive = g.bArryCopyBy2(transceive);
-                            intValue = Integer.valueOf(g.a(transceive, transceive.length), 16);
+                            intValue = Integer.valueOf(g.bArrCopy(transceive, transceive.length), 16);
                             action = (intValue / 100) + "." + (intValue % 100);
 
 //                                    bVar.e(action);
@@ -256,7 +256,7 @@ public class CardReader {
 
     public static void ReadTrade(IsoDep isoDep, CardInfo card) {
         for (int i = 0; i < 10; i++) {
-            byte[] a = g.a(FInts.t);
+            byte[] a = g.stingTobArr(FInts.t);
             a[2] = (byte) (i + 1);
             try {
                 a = isoDep.transceive(a);
@@ -267,9 +267,9 @@ public class CardReader {
                     byte[] bArr = new byte[6];
                     byte[] bArr2 = new byte[1];
                     byte[] bArr3 = new byte[4];
-                    g.a(a, 5, bArr3, 0, bArr3.length);
-                    g.a(a, 9, bArr2, 0, bArr2.length);
-                    g.a(a, 10, bArr, 0, bArr.length);
+                    g.bArrCopy(a, 5, bArr3, 0, bArr3.length);
+                    g.bArrCopy(a, 9, bArr2, 0, bArr2.length);
+                    g.bArrCopy(a, 10, bArr, 0, bArr.length);
                     tradingRecordInfo.setTradingDateTime(E.e1(a, 16));
                     tradingRecordInfo.setTradingType(Integer.valueOf(E.b(bArr2), 16));
                     tradingRecordInfo.setTradingMoney(Long.valueOf(E.b(bArr3), 16));

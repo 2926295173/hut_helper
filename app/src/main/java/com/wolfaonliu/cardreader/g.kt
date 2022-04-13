@@ -14,13 +14,13 @@ object g {
     )
 
     //return
-    private fun a(c: Char): Byte {
+    private fun bArrCopy(c: Char): Byte {
         return "0123456789ABCDEF".indexOf(c).toByte()
     }
 
     //ba,i
     @JvmStatic
-    fun a(bArr: ByteArray, i: Int): String {
+    fun bArrCopy(bArr: ByteArray, i: Int): String {
         //计数
         var i2 = 0
         //新建数组，长度为
@@ -49,12 +49,12 @@ object g {
 
     //ba,i,i2,str
     @JvmStatic
-    fun a(bArr: ByteArray, i: Int, i2: Int, str: String?): String? {
+    fun bArrCopy(bArr: ByteArray, i: Int, i2: Int, str: String?): String? {
         return try {
             val bArr2 = ByteArray(i2)
 
             //val i=0
-            a(bArr, i, bArr2, 0, i2)
+            bArrCopy(bArr, i, bArr2, 0, i2)
             //GB18030
             val str = Charset.forName(str)
             String(bArr2, str)//gb18030
@@ -64,9 +64,9 @@ object g {
         }
     }
 
-    //来自e的引用
+    //数组复制，src src.pos des des.pos len
     @JvmStatic
-    fun a(bArr: ByteArray, i: Int, bArr2: ByteArray, i2: Int, i3: Int) {
+    fun bArrCopy(bArr: ByteArray, i: Int, bArr2: ByteArray, i2: Int, i3: Int) {
         when {
             i2 + i3 > bArr2.size -> {
                 throw RuntimeException("目标字节数组所分配的长度不够")
@@ -81,16 +81,16 @@ object g {
     }
 
     @JvmStatic
-    fun a(str: String): ByteArray {
+    fun stingTobArr(str: String): ByteArray {
         val length = str.length / 2
         val bArr = ByteArray(length)
         val toCharArray = str.toCharArray()
         for (i in 0 until length) {
             val i2 = i * 2
             //example 11110101===>0000 0000 0000 0000 0000 0000 0000 0000 .... 1111 0101
-            val x = a(toCharArray[i2 + 1]).toInt()
+            val x = bArrCopy(toCharArray[i2 + 1]).toInt()
             //example
-            val y = (a(toCharArray[i2]).toInt() shl 4)
+            val y = (bArrCopy(toCharArray[i2]).toInt() shl 4)
             //x or y可能超出byte范围，所以进行其他位清零
             val z = (x or y) and 0xFF
             bArr[i] = z.toByte()
@@ -118,6 +118,6 @@ object g {
         //从第4位开始复制，复制第四第五位到obj
         System.arraycopy(bArr, bArr.size - 2, obj, 0, 2)
         //传2个byte，判断是否为9000
-        return a(obj, 2) == "9000"
+        return bArrCopy(obj, 2) == "9000"
     }
 }
