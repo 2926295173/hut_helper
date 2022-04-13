@@ -45,7 +45,7 @@ class AboutActivity : AppCompatActivity(), OnItemClickListener {
             s[2][1] = "wolfaonliuxgmailcom"
             s[3][0] = getString(R.string.github)
             s[3][1] = "https://github.com/2926295173/hut_helper"
-            val sss = s[2][1]
+            //val sss = s[2][1]
             val array1 = arrayOf("版本号", getVersion(this.applicationContext), "开发者", "aoian")
             val x = mutableListOf(array1)
             //出现了为空的问题，暂时不导入整个列表组了

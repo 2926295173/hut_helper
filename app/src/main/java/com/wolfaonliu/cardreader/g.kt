@@ -67,12 +67,16 @@ object g {
     //来自e的引用
     @JvmStatic
     fun a(bArr: ByteArray, i: Int, bArr2: ByteArray, i2: Int, i3: Int) {
-        if (i2 + i3 > bArr2.size) {
-            throw RuntimeException("目标字节数组所分配的长度不够")
-        } else if (i + i3 > bArr.size) {
-            throw RuntimeException("源字节数组的长度与要求复制的长度不符")
-        } else {
-            System.arraycopy(bArr, i, bArr2, i2, i3)
+        when {
+            i2 + i3 > bArr2.size -> {
+                throw RuntimeException("目标字节数组所分配的长度不够")
+            }
+            i + i3 > bArr.size -> {
+                throw RuntimeException("源字节数组的长度与要求复制的长度不符")
+            }
+            else -> {
+                System.arraycopy(bArr, i, bArr2, i2, i3)
+            }
         }
     }
 
@@ -94,15 +98,20 @@ object g {
         return bArr
     }
 
+    //数组末尾去掉两个字符后返回
     @JvmStatic
-    fun a(bArr: ByteArray): ByteArray {
+    fun bArryCopyBy2(bArr: ByteArray): ByteArray {
+        //新数组长度少了2
         val obj = ByteArray(bArr.size - 2)
+        //从头开始，复制新数组长度
         System.arraycopy(bArr, 0, obj, 0, obj.size)
+        //复制了一个少于2字符的数组
         return obj
     }
 
+    //判断末尾是否9000
     @JvmStatic
-    fun c(bArr: ByteArray): Boolean {
+    fun is9000last(bArr: ByteArray): Boolean {
         //new 2 byte array
         val obj = ByteArray(2)
         //src src.pos dest dest.pos len

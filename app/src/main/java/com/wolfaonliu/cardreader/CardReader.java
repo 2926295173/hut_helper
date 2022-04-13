@@ -42,9 +42,9 @@ public class CardReader {
 //            extraID();
             isoDep.transceive(g.a(FInts.a));
             byte[] transceive = isoDep.transceive(g.a(FInts.c));
-            if (transceive != null && g.c(transceive)) {
+            if (transceive != null && g.is9000last(transceive)) {
                 transceive = isoDep.transceive(g.a(FInts.d));
-                if (transceive == null || !g.c(transceive)) {
+                if (transceive == null || !g.is9000last(transceive)) {
                     Util.aToast(activity.getString(R.string.read_failed), activity);
                 } else {
                     byte[] a;
@@ -52,8 +52,8 @@ public class CardReader {
 
                     transceive = isoDep.transceive(g.a(FInts.j));
                     //名字
-                    if (transceive != null && g.c(transceive)) {
-                        a = g.a(transceive);
+                    if (transceive != null && g.is9000last(transceive)) {
+                        a = g.bArryCopyBy2(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("名字", action);
@@ -67,8 +67,8 @@ public class CardReader {
 
                     transceive = isoDep.transceive(g.a(FInts.h));
                     //卡号
-                    if (transceive != null && g.c(transceive)) {
-                        a = g.a(transceive);
+                    if (transceive != null && g.is9000last(transceive)) {
+                        a = g.bArryCopyBy2(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("卡号", action);
@@ -77,8 +77,8 @@ public class CardReader {
 
                     transceive = isoDep.transceive(g.a(FInts.personId));
                     //身份证
-                    if (transceive != null && g.c(transceive)) {
-                        a = g.a(transceive);
+                    if (transceive != null && g.is9000last(transceive)) {
+                        a = g.bArryCopyBy2(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("卡号", action);
@@ -88,8 +88,8 @@ public class CardReader {
 
                     transceive = isoDep.transceive(g.a(FInts.g));
                     //学院
-                    if (transceive != null && g.c(transceive)) {
-                        a = g.a(transceive);
+                    if (transceive != null && g.is9000last(transceive)) {
+                        a = g.bArryCopyBy2(transceive);
                         g.a(a, 0, transceive, 0, transceive.length - 2);
                         action = g.a(a, 0, a.length, "GB18030").trim();
 //                        Log.isNone2("***", action);
@@ -106,10 +106,10 @@ public class CardReader {
                     int intValue;
                     transceive = isoDep.transceive(g.a(FInts.e));
                     //余额
-                    if (transceive != null && g.c(transceive)) {
+                    if (transceive != null && g.is9000last(transceive)) {
                         transceive = isoDep.transceive(g.a(FInts.n));
-                        if (transceive != null && g.c(transceive)) {
-                            transceive = g.a(transceive);
+                        if (transceive != null && g.is9000last(transceive)) {
+                            transceive = g.bArryCopyBy2(transceive);
                             intValue = Integer.valueOf(g.a(transceive, transceive.length), 16);
                             action = (intValue / 100) + "." + (intValue % 100);
 
@@ -262,7 +262,7 @@ public class CardReader {
                 a = isoDep.transceive(a);
 //                DebugUtil.unicodeBlockOfZ("读钱包交易记录：", e.b(readCard));
 //                Log.isNone2("读钱包交易记录：", e.b(unicodeBlockOfZ));
-                if (a != null && g.c(a) && Util.isNotNone3(E.b(g.a(a)).replaceAll("0", ""))) {
+                if (a != null && g.is9000last(a) && Util.isNotNone3(E.b(g.bArryCopyBy2(a)).replaceAll("0", ""))) {
                     TradingRecordInfo tradingRecordInfo = new TradingRecordInfo();
                     byte[] bArr = new byte[6];
                     byte[] bArr2 = new byte[1];
