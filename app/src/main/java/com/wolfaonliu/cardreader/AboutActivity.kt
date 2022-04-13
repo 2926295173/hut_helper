@@ -83,7 +83,7 @@ class AboutActivity : AppCompatActivity(), OnItemClickListener {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.Report)
             .setMessage(R.string.report_atten)
-        builder.setPositiveButton(R.string.yes) { dialog: DialogInterface?, _: Int ->
+        builder.setPositiveButton(R.string.yes) { _: DialogInterface?, _: Int ->
             val email = Intent(Intent.ACTION_SEND)
             email.type = "message/rfc822"
             email.putExtra(Intent.EXTRA_EMAIL, arrayOf("wolfaonliuxgmailcom"))
