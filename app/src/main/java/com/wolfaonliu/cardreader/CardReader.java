@@ -40,17 +40,17 @@ public class CardReader {
             isoDep.connect();
 //            unicodeBlockOfZ(this.NfcMainfare);
 //            extraID();
-            isoDep.transceive(g.stingTobArr(FInts.a));
-            byte[] transceive = isoDep.transceive(g.stingTobArr(FInts.c));
+//            isoDep.transceive(g.stingTobArr(FInts.a));
+            byte[] transceive = isoDep.transceive(g.stingTobArr(FInts.req));
             if (transceive != null && g.is9000last(transceive)) {
-                transceive = isoDep.transceive(g.stingTobArr(FInts.d));
+                transceive = isoDep.transceive(g.stingTobArr(FInts.rats));
                 if (transceive == null || !g.is9000last(transceive)) {
                     Util.aToast(activity.getString(R.string.read_failed), activity);
                 } else {
                     byte[] a;
 
 
-                    transceive = isoDep.transceive(g.stingTobArr(FInts.j));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.stu_name));
                     //名字
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
@@ -65,7 +65,7 @@ public class CardReader {
                         }
                     }
 
-                    transceive = isoDep.transceive(g.stingTobArr(FInts.h));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.card_id));
                     //卡号
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
@@ -75,7 +75,7 @@ public class CardReader {
                         card.setStudentId(action);
                     }
 
-                    transceive = isoDep.transceive(g.stingTobArr(FInts.personId));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.chinaID));
                     //身份证
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
@@ -86,7 +86,7 @@ public class CardReader {
                     }
 
 
-                    transceive = isoDep.transceive(g.stingTobArr(FInts.g));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.xueyuan_id));
                     //学院
                     if (transceive != null && g.is9000last(transceive)) {
                         a = g.bArryCopyBy2(transceive);
@@ -104,10 +104,10 @@ public class CardReader {
                     }
 
                     int intValue;
-                    transceive = isoDep.transceive(g.stingTobArr(FInts.e));
+                    transceive = isoDep.transceive(g.stingTobArr(FInts.balance));
                     //余额
                     if (transceive != null && g.is9000last(transceive)) {
-                        transceive = isoDep.transceive(g.stingTobArr(FInts.n));
+                        transceive = isoDep.transceive(g.stingTobArr(FInts.ballance2));
                         if (transceive != null && g.is9000last(transceive)) {
                             transceive = g.bArryCopyBy2(transceive);
                             intValue = Integer.valueOf(g.bArrCopy(transceive, transceive.length), 16);
@@ -256,7 +256,7 @@ public class CardReader {
 
     public static void ReadTrade(IsoDep isoDep, CardInfo card) {
         for (int i = 0; i < 10; i++) {
-            byte[] a = g.stingTobArr(FInts.t);
+            byte[] a = g.stingTobArr(FInts.trade);
             a[2] = (byte) (i + 1);
             try {
                 a = isoDep.transceive(a);
