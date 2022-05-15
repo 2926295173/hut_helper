@@ -42,7 +42,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.github.GateOfTruth:OkSimple:3.3.3'//简单请求库
-    implementation 'org.jsoup:jsoup:1.14.3'//解析库
+    implementation 'org.jsoup:jsoup:1.15.1'//解析库
 
     implementation 'com.google.android.material:material:1.5.0'
 
